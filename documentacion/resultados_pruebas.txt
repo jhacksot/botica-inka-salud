@@ -1,0 +1,16 @@
+test_archivo_ausente_y_lista_vacia (test_core.Pruebas.test_archivo_ausente_y_lista_vacia) ... ok
+test_archivo_corrupto_se_conserva (test_core.Pruebas.test_archivo_corrupto_se_conserva) ... ok
+test_busqueda (test_core.Pruebas.test_busqueda) ... ok
+test_doble_instancia (test_core.Pruebas.test_doble_instancia) ... ok
+test_esquema_y_duplicados (test_core.Pruebas.test_esquema_y_duplicados) ... ok
+test_estado_persistente_y_error (test_core.Pruebas.test_estado_persistente_y_error) ... ok
+test_fallo_guardado_no_confirma (test_core.Pruebas.test_fallo_guardado_no_confirma) ... ok
+test_limites_y_acentos (test_core.Pruebas.test_limites_y_acentos) ... ok
+test_orden_y_desempate_sin_mutacion (test_core.Pruebas.test_orden_y_desempate_sin_mutacion) ... ok
+test_persistencia_y_codigo_tras_reabrir (test_core.Pruebas.test_persistencia_y_codigo_tras_reabrir) ... ok
+test_validacion (test_core.Pruebas.test_validacion) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.036s
+
+OK
