@@ -1,5 +1,22 @@
-__pycache__/
-*.pyc
-*.lock
+# Datos locales y documentos privados
+registros.txt
+datos/
+*.json
+*.docx
+*.pdf
+*.jpg
+*.jpeg
+*.bundle
+# Compilacion y herramientas
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
 *.tmp
-datos/registros.json
+*.log
+*.zip
+.env
+.env.*
+__pycache__/

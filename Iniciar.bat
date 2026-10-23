@@ -1,9 +1,17 @@
 @echo off
 cd /d "%~dp0"
-where py >nul 2>nul
-if %errorlevel% equ 0 (
-    py -3 app.py
-) else (
-    python app.py
+if not exist bin mkdir bin
+set "COMPILADOR=%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+if not exist "%COMPILADOR%" set "COMPILADOR=%WINDIR%\Microsoft.NET\Framework\v4.0.30319\csc.exe"
+if not exist "%COMPILADOR%" (
+  echo Se requiere .NET Framework 4.7.2 o posterior en Windows.
+  pause
+  exit /b 1
 )
-if errorlevel 1 pause
+"%COMPILADOR%" /nologo /out:bin\BoticaInkaSalud.exe Program.cs
+if errorlevel 1 (
+  pause
+  exit /b 1
+)
+bin\BoticaInkaSalud.exe
+pause
