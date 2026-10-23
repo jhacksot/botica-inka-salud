@@ -1,6 +1,6 @@
 # Botica Inka Salud
 
-Programa académico de consola en C# para registrar y consultar reclamos, quejas y recomendaciones ficticias. Apoyo administrativo de demostración; no sustituye el Libro de Reclamaciones. Adaptación del programa original con asistencia de Codex.
+Programa académico de consola en C# para registrar y consultar reclamos, quejas y recomendaciones ficticias. Apoyo administrativo de demostración; no sustituye el Libro de Reclamaciones.
 
 ## Ejecutar en Windows
 
@@ -56,4 +56,4 @@ Para exponer: explicar primero el índice compartido de los siete arreglos y el 
 
 Se realizaron 25 comprobaciones del ejecutable mediante entradas de consola preparadas fuera del código entregado. Ver documentacion/verificacion.md para resultados y reproducción manual; no se incluyen frameworks de pruebas. Ver documentacion/adaptacion.md para decisiones técnicas y pseudocódigo.
 
-El repositorio local conserva los cuatro commits originales de Python como antecedentes y añade commits reales de adaptación. No se inventaron aportes de integrantes. La versión actual usa C#; los resultados antiguos no validan esta versión.
+La versión actual usa C#. La documentación de verificación corresponde a esta versión.
