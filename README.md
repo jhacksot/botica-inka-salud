@@ -1,91 +1,59 @@
-# Botica Inka Salud — Evaluación Parcial
+# Botica Inka Salud
 
-Prototipo académico de escritorio creado desde cero con Python y Tkinter.
-Curso Fundamentos de Programación CIIN1205P, UPN Cajamarca.
-Solo desarrolla los puntos 1 al 5 de la práctica de campo. No es la evaluación final.
+Programa académico de consola en C# para registrar y consultar reclamos, quejas y recomendaciones ficticias. Apoyo administrativo de demostración; no sustituye el Libro de Reclamaciones. Adaptación del programa original con asistencia de Codex.
 
-## Abrir en Windows
+## Ejecutar en Windows
 
-1. Extraer todo el ZIP en una carpeta con permiso de escritura, por ejemplo Documentos.
-2. Tener Python 3.10 o posterior con Tcl/Tk (instalador estándar de Python para Windows).
-3. Hacer doble clic en `Iniciar.bat`, o ejecutar `py -3 app.py` desde la carpeta del proyecto.
+Requisitos: Windows con .NET Framework 4.7.2 o posterior y su compilador csc.exe. No necesita Python, paquetes externos ni internet. Extraer el ZIP completo en una carpeta con permiso de escritura, abrir PowerShell en ella y ejecutar:
 
-No se necesitan paquetes externos ni internet durante la ejecución. La entrega contiene
-código Python; no es un ejecutable `.exe`. Si aparece un error sobre tkinter, reparar la
-instalación de Python incluyendo Tcl/Tk. No ejecutar directamente dentro del ZIP.
+```powershell
+.\Iniciar.bat
+```
 
-## Uso
+También se puede hacer doble clic en Iniciar.bat. Compila Program.cs en bin/ y ejecuta el programa desde la carpeta del proyecto. Para editar en Visual Studio, abrir BoticaInkaSalud.csproj con las herramientas de .NET Framework 4.7.2 instaladas. El proyecto y el lanzador son configuración de compilación; la lógica académica completa está en Program.cs.
 
-- Elegir Reclamo, Queja o Recomendación y una fecha válida AAAA-MM-DD.
-- Escribir asunto (3–100 caracteres), descripción (10–1000) y referencia opcional (hasta 60).
-- Confirmar que los datos son ficticios y pulsar Registrar y guardar.
-- Copiar el código IS-000001 que aparece en la confirmación.
-- Buscar por código; Mostrar todos recupera el listado completo.
-- Elegir codigo o fecha y pulsar Ordenar por. El orden es ascendente.
-- Seleccionar una fila para ver el detalle o guardar un estado.
-- Cerrar y reabrir: los registros y estados siguen disponibles.
+## Ejemplo ficticio de uso
 
-El archivo `datos/registros.json` empieza vacío y se guarda junto al programa, no en
-la carpeta desde la cual se ejecutó la terminal. Cada registro incluye `ficticio: true`.
-El código se calcula a partir del mayor código guardado. No hay eliminación de registros.
-Mover toda la carpeta mueve también los datos. El historial Git no incluye los registros
-de trabajo; el ZIP sí incluye un archivo vacío para el primer inicio.
+1. Elegir 1, confirmar datos ficticios con 1 y elegir tipo 1 (Reclamo).
+2. Fecha 2026-10-23, asunto Ejemplo ficticio, descripción Simulacion academica sin datos de clientes; dejar la referencia vacía.
+3. Aparece IS-000001 en memoria. Elegir 3 y buscar ese código.
+4. Elegir 4, indicar el código y seleccionar 2 (En revision).
+5. Crear otro ejemplo con una fecha anterior y elegir 6 para ordenar por fecha.
+6. Elegir 0 para guardar y salir. Reabrir y elegir 2 para comprobar la recuperación.
 
-## Demostración sugerida
+Menú: registrar, listar con detalle, buscar por código, cambiar estado, ordenar por código o fecha, guardar, guardar y salir. El código continúa desde el mayor cargado. Los textos de tipo y estado se escriben sin tildes para facilitar su uso en consolas Windows; los campos libres conservan los caracteres ingresados.
 
-Crear tres casos inventados:
+## Relación con los materiales
 
-| Tipo | Fecha | Asunto | Descripción |
-|---|---|---|---|
-| Reclamo | 2026-10-22 | Ejemplo ficticio de producto | Simulación de disconformidad con un producto de demostración. |
-| Queja | 2026-10-20 | Ejemplo ficticio de atención | Simulación de una observación sobre la atención de demostración. |
-| Recomendación | 2026-10-21 | Ejemplo ficticio de señalización | Simulación de una propuesta para mejorar la señalización del área. |
+Las referencias usan las claves y páginas del resumen técnico recibido, no una división inventada en seis sesiones.
 
-No son sucesos ocurridos en la botica. La fecha es parte del caso ficticio.
+| Técnica | Referencia | Aplicación |
+|---|---|---|
+| Variables, operadores, condiciones y ciclos | T1.2 pp. 15–23; S07 | Validación y menú do-while/switch |
+| Métodos estáticos, parámetros y retornos | T2.1 pp. 5–8; P2; S07 | Operaciones separadas en métodos |
+| int.TryParse y out | T2.2 pp. 5–8 | Opciones, fechas y códigos |
+| Arreglos con contador y búsqueda secuencial | T3.1 pp. 5–8; T3.2 pp. 5–7 | Capacidad de 100 y consulta |
+| Arreglos paralelos | T3.4 pp. 5–7; T4.3 pp. 4–7; S07 | Campos unidos por índice |
+| Burbuja, intercambio y CompareTo | T3.3 pp. 5–7; T4.4 pp. 4–7 | Orden ascendente; desempate por código |
+| Cadenas, índices, Trim, ToUpper, Substring, Contains, Split | T4.1–T4.4 | Validación y lectura de campos |
+| StreamReader, StreamWriter, using, try-catch | T5.2–T5.4 | Cargar y guardar texto |
+| Git y commits | T1.1 pp. 5–15 | Historial de la adaptación |
 
-## Archivos y algoritmos
+## Datos y limitaciones
 
-- `app.py`: interfaz y eventos Tkinter.
-- `core.py`: validación, código consecutivo, búsqueda secuencial, ordenamiento por inserción,
-  persistencia y bloqueo de segunda instancia en Windows.
-- `tests/test_core.py`: pruebas automáticas con archivos temporales.
-- `datos/registros.json`: almacenamiento local de la demostración.
-- `documentacion/`: diagrama de flujo y pseudocódigo.
+- Máximo 100 registros; códigos de IS-000001 a IS-999999. No hay eliminación.
+- Asunto de 3–100 caracteres; descripción de 10–1000; referencia opcional de hasta 60. Fecha real AAAA-MM-DD, incluidos años bisiestos. No se admite | en textos.
+- registros.txt contiene una línea por caso: codigo|tipo|fecha|asunto|descripcion|referencia|estado|FICTICIO. Se crea localmente y se excluye de Git. No se incluyen registros históricos reales.
+- Registrar y cambiar estado modifican la memoria. Guardar con 7 o salir con 0. Cerrar la ventana o terminar la entrada sin guardar pierde los cambios pendientes.
+- Un archivo inválido detiene el inicio sin sobrescribirlo. Respaldarlo y corregirlo o restaurar una copia válida antes de volver a iniciar.
+- El guardado es directo: un fallo durante la escritura puede dejar el archivo incompleto. El programa informa el error y permite reintentar con los datos en memoria. Copiar manualmente el archivo con el programa cerrado para respaldarlo.
+- Usar una sola instancia. No hay bloqueo de sesiones, escritura atómica, cifrado, autenticación, notificaciones, base de datos ni servicios web.
+- La marca FICTICIO es una confirmación del usuario; no detecta datos personales. No introducir información real de clientes. Los estados son etiquetas de seguimiento.
 
-Ejecutar pruebas: `py -3 -m unittest discover -s tests -v`.
+## Explicación y verificación
 
-## Alcance y recuperación
+Para exponer: explicar primero el índice compartido de los siete arreglos y el contador; después mostrar el menú, las validaciones, la búsqueda secuencial, el intercambio completo de burbuja y la lectura/escritura por líneas.
 
-Apoyo administrativo interno de demostración. No sustituye el Libro de Reclamaciones
-oficial ni recibe legalmente reclamos. No se ha instalado ni validado con personal de la botica.
-No ingresar DNI, teléfonos, nombres de clientes, datos médicos o recetas. La casilla es una
-confirmación del usuario; no detecta automáticamente datos personales escritos en texto libre.
-No hay autenticación, cifrado, historial de estados ni copias automáticas. El estado Cerrado
-solo es una etiqueta y no acredita una respuesta al consumidor.
+Se realizaron 25 comprobaciones del ejecutable mediante entradas de consola preparadas fuera del código entregado. Ver documentacion/verificacion.md para resultados y reproducción manual; no se incluyen frameworks de pruebas. Ver documentacion/adaptacion.md para decisiones técnicas y pseudocódigo.
 
-Para respaldar, cerrar el programa y copiar `datos/registros.json` a una ubicación segura.
-Si el JSON es inválido, el programa muestra el error y se cierra sin sobrescribirlo. Conservar
-una copia del archivo dañado para revisarlo y restaurar una copia válida con el programa cerrado.
-Si no hay respaldo y se quiere empezar una demostración nueva, renombrar el archivo dañado
-y volver a abrir (la lista empieza vacía). No editar el JSON mientras el programa esté abierto.
-Una segunda instancia sobre la misma carpeta se rechaza para evitar escrituras simultáneas.
-
-## Autoría académica
-
-Integrantes, según la información entregada:
-
-- ARON MUÑOZ BECERRA
-- CARLOS ANTONY RAMIREZ JIMENEZ
-- DALTON EXIMO ARAUJO REYES
-- DEIVYS CASTREJON CHAVEZ
-- JHACK ANDERSON SOTO CHILON
-
-La elaboración contó con asistencia de Codex. No se atribuyen tareas ni commits individuales
-a los integrantes. Revisar y comprender el código antes de la exposición.
-
-## Control de versiones
-
-Se creó un historial local nuevo por indicación de comenzar desde cero. No se reutilizó
-ni modificó el repositorio remoto mencionado inicialmente. `historial.bundle` permite
-recuperar los commits con `git clone historial.bundle Botica_Inka_Salud`.
-El paquete ZIP es la copia lista para ejecutar; el bundle documenta el desarrollo local.
+El repositorio local conserva los cuatro commits originales de Python como antecedentes y añade commits reales de adaptación. No se inventaron aportes de integrantes. La versión actual usa C#; los resultados antiguos no validan esta versión.
